@@ -16,15 +16,21 @@ const getAdvice = async () => {
   }
 };
 
-const displayAdvice = () => {
-  advice = getAdvice();
-  const elements = getElements();
+const displayAdvice = (advice, elements) => {
   elements.advice.innerText = advice.slip.advice;
   elements.adviceNum.innerText = `Advice #${advice.slip.id}`;
 };
 
+const handleAdviceButtonClick = async (elements) => {
+  const advice = await getAdvice();
+  displayAdvice(advice, elements);
+};
+
 const addListeners = () => {
-  elements.adviceButton.addEventListener('click', displayAdvice);
+  const elements = getElements();
+  elements.adviceButton.addEventListener('click', () =>
+    handleAdviceButtonClick(elements)
+  );
 };
 
 // add event listeners
