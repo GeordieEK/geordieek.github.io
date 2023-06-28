@@ -11,7 +11,7 @@
   grid-template-rows: 1fr 1fr 1fr;
   gap: 5px 5px;
   grid-auto-flow: row;
-  width: 30%;
+  width: 310px;
 }
 
 .cell {
