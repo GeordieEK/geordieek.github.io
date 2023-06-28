@@ -6,18 +6,11 @@ const getNodes = () => {
   };
 };
 
-const getPlayer = () => {
-  //TODO: Make ternary
-  let playerX = true;
-
+const getCurrentPlayer = () => {
+  let player = 'X';
   return () => {
-    if (playerX === true) {
-      playerX = false;
-      return 'X';
-    } else {
-      playerX = true;
-      return 'O';
-    }
+    player = player === 'X' ? 'O' : 'X';
+    return player;
   };
 };
 
@@ -25,69 +18,42 @@ const displayWin = (player) => {
   document.querySelector('#winDiv').innerText = `${player} wins!`;
 };
 
-const makeGameBoard = () => {
-  return [[], [], []];
-};
-
 const placeMark = (board, cell, player) => {
-  const x = cell.getAttribute('data-x');
-  const y = cell.getAttribute('data-y');
+  const x = cell.dataset.x;
+  const y = cell.dataset.y;
   board[x][y] = player;
 };
 
-// Returns true if win
-const checkCol = (board) => {
-  for (let i = 0; i < 3; i++) {
-    const cache = { O: 0, X: 0 };
-
-    for (let j = 0; j < 3; j++) {
-      cache[board[i][j]] += 1;
-    }
-
-    if (cache['X'] === 3 || cache['O'] === 3) return true;
-  }
-  return false;
-};
-
-const checkRow = (board) => {
-  for (let i = 0; i < 3; i++) {
-    const cache = { O: 0, X: 0 };
-
-    for (let j = 0; j < 3; j++) {
-      cache[board[j][i]] += 1;
-    }
-    if (cache['X'] === 3 || cache['O'] === 3) return true;
-  }
-  return false;
-};
-const checkDiagonal = (board) => {
-  const diagonals = [
-    [board[0][0], board[1][1], board[2][2]],
-    [board[0][2], board[1][1], board[2][0]],
-  ];
-  for (arr of diagonals) {
-    const cache = { O: 0, X: 0 };
-    arr.forEach((val) => (cache[val] += 1));
-    if (cache['X'] === 3 || cache['O'] === 3) return true;
-  }
-};
+// prettier-ignore
+const winningConditions = [
+  [[0, 0], [0, 1], [0, 2]],  // top row
+  [[1, 0], [1, 1], [1, 2]],  // middle row
+  [[2, 0], [2, 1], [2, 2]],  // bottom row
+  [[0, 0], [1, 0], [2, 0]],  // left column
+  [[0, 1], [1, 1], [2, 1]],  // middle column
+  [[0, 2], [1, 2], [2, 2]],  // right column
+  [[0, 0], [1, 1], [2, 2]],  // main diagonal
+  [[0, 2], [1, 1], [2, 0]]   // secondary diagonal
+];
 
 const checkWin = (board) => {
-  if (checkRow(board) || checkCol(board) || checkDiagonal(board)) {
-    console.log('win');
-    return true;
+  for (let condition of winningConditions) {
+    const [a, b, c] = condition.map(([x, y]) => board[x][y]);
+    if (a !== undefined && a === b && a === c) {
+      return true;
+    }
   }
+  return false;
 };
 
-const handleCellClick = (event, player) => {
+const handleCellClick = (event, player, board) => {
   const currentPlayer = player();
-  // TODO: Split out display
-  if (event.target.className === 'cell' && event.target.innerText === '') {
+  if (event.target.innerText === '') {
+    // Fill UI cell with current player mark
     event.target.innerText = currentPlayer;
-
-    // Place internal mark
+    // Place internal mark in 2D Matrix
     placeMark(board, event.target, currentPlayer);
-    // Check win
+    // Check win and display winning player if true
     if (checkWin(board)) displayWin(currentPlayer);
   }
 };
@@ -105,14 +71,19 @@ const handleResetClick = (event, cells, board) => {
 };
 
 const addListeners = ({ game, cells, resetButton }, board, player) => {
-  // Use event delegation to add event listener to parent element instead of adding listeners to every cell in the game
-  game.addEventListener('click', () => handleCellClick(event, player));
+  // Uses event delegation to add event listener to parent element
+  // instead of adding listeners to every cell in the game
+  game.addEventListener('click', (event) => {
+    if (event.target.className === 'cell') {
+      handleCellClick(event, player, board);
+    }
+  });
   resetButton.addEventListener('click', () =>
     handleResetClick(event, cells, board)
   );
 };
 
-const player = getPlayer();
-const board = makeGameBoard();
+const player = getCurrentPlayer();
+const board = [[], [], []];
 const domNodes = getNodes();
 addListeners(domNodes, board, player);
