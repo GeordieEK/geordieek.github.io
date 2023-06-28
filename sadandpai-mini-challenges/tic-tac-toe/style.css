@@ -1,0 +1,30 @@
+#gameContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#game {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 5px 5px;
+  grid-auto-flow: row;
+  width: 30%;
+}
+
+.cell {
+  background-color: lightgray;
+  height: 100px;
+  width: 100px;
+  margin: 0px;
+}
+
+.cell:hover {
+  background-color: grey;
+}
+
+#resetButton {
+  margin-top: 2vw;
+}
