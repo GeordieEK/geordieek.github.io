@@ -1,0 +1,56 @@
+.center {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#headerText {
+  margin: 0;
+  padding: 5vw 0 1vw 0;
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+#topContainer {
+  width: 100vw;
+  height: 20vw;
+  background-image: url('./images/pattern-bg-desktop.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+#ipInput {
+  width: 350px;
+  border-radius: 5px;
+}
+
+#ipDisplayContainer {
+  display: flex;
+  justify-content: space-around;
+  height: 500px;
+  margin: 25px 0;
+  background-color: white;
+  width: 75%;
+  border-radius: 10px;
+}
+
+.ipDisplayInfo {
+  border-left: 1px solid lightgray;
+  width: 100%;
+}
+
+#ipDisplayContainer :first-child {
+  border-left: none;
+}
+
+/* Leaflet */
+#map {
+  height: 500px;
+}
