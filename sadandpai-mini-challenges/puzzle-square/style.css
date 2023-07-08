@@ -1,0 +1,29 @@
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.puzzleContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    'topLeft topMid topRight'
+    'leftMid midMid rightMid'
+    'bottomLeft bottomMid bottomRight';
+  border: 1px solid purple;
+}
+
+.puzzleSquare {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid green;
+  margin: 5px;
+  width: 7vw;
+  height: 7vw;
+  font-size: xx-large;
+  font-weight: bold;
+}
