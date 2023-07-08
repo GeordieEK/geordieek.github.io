@@ -1,0 +1,16 @@
+.center {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.toDoWrapper {
+  border: solid 1px green;
+}
+
+.toDoItem {
+  border: solid 1px purple;
+  flex-direction: row;
+}
