@@ -138,19 +138,19 @@ const handleContainerClick = (event) => {
   if (event.target.id === 'editBtn') {
     handleEditBtnClick(event, commentDiv);
   }
-  if (event.target.id === 'replyBtn') {
+  if (event.target.matches('#replyBtn')) {
     //TODO: Move to own function
     //TODO: Comment nestring
     const commentInput = createCommentReply();
     commentDiv.appendChild(commentInput);
   }
-  if (event.target.id === 'deleteBtn') {
+  if (event.target.matches('#deleteBtn')) {
     commentDiv.remove();
   }
-  if (event.target.id === 'postBtn') {
+  if (event.target.matches('#postBtn')) {
     handlePostBtnClick(event, commentDiv);
   }
-  if (event.target.id === 'cancelBtn') {
+  if (event.target.matches('#cancelBtn')) {
     commentDiv.remove();
   }
 };
