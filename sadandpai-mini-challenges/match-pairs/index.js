@@ -32,9 +32,9 @@ const symbols = [
   '🐶',
 ];
 
-const selectSymbolPairs = (symbols) => {
+const selectSymbolPairs = (symbols, numPairs) => {
   const chosenSymbols = [];
-  for (let i = 0; i < 8; i++) {
+  for (let i = 0; i < numPairs; i++) {
     const randomIndex = Math.floor(Math.random() * symbols.length);
     chosenSymbols.push(symbols[randomIndex]);
   }
@@ -63,7 +63,7 @@ const attemptCounter = () => {
       return ++counter;
     },
     resetCounter() {
-      return (counter = 0);
+      counter = 0;
     },
   };
 };
@@ -113,6 +113,7 @@ const matchChecker = () => {
     }
   };
 };
+
 const bindEventHandlers = (
   container,
   resetBtn,
@@ -146,6 +147,7 @@ const createMatchGame = (
   symbols,
   resetBtn,
   counterDisplay,
+  gameSize,
   counter = attemptCounter(),
   addListeners = true
 ) => {
@@ -154,7 +156,7 @@ const createMatchGame = (
   container.innerText = '';
 
   // Choose symbols
-  const symbolPairs = selectSymbolPairs(symbols);
+  const symbolPairs = selectSymbolPairs(symbols, gameSize * 2);
 
   // Create Match Card
   const matchCards = symbolPairs.map((symbol) => createMatchCard(symbol));
@@ -173,5 +175,6 @@ const createMatchGame = (
 const gameContainer = document.querySelector('.game-container');
 const resetBtn = document.querySelector('#resetBtn');
 const counterDisplay = document.querySelector('#counter');
+const gameSize = 4; // 4x4 grid
 
-createMatchGame(gameContainer, symbols, resetBtn, counterDisplay);
+createMatchGame(gameContainer, symbols, resetBtn, counterDisplay, gridSize);
