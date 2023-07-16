@@ -1,0 +1,39 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.game-container {
+  width: 50vw;
+  border: solid 1px green;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.game-container > * {
+  flex: 1 1 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-card {
+  height: 80px;
+  background-color: purple;
+}
+
+.facedown > * {
+  display: none;
+}
+
+.matched-card {
+  border: 1px solid lightblue;
+}
+
+.game-card:hover {
+  background-color: plum;
+}
