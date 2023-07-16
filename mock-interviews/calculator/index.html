@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="module" src="index.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <div id="container" class="center">
+        <div id="display">0</div>
+        <div id="btn-container">
+          <!-- TODO: Too many divs? Include buttons? Semantic HTML -->
+          <button class="clear opBtn calcBtn">C</button>
+          <button class="plus opBtn calcBtn">+</button>
+          <button class="minus opBtn calcBtn">-</button>
+          <button class="multiply opBtn calcBtn">x</button>
+          <button class="divide opBtn calcBtn">/</button>
+          <button class="equals opBtn calcBtn">=</button>
+          <button class="decimal calcBtn numBtn">.</button>
+          <button class="zero calcBtn numBtn">0</button>
+          <div class="numbers calcBtn">
+            <!-- TODO: id="1" obviously bad, update selector -->
+            <button class="numBtn" id="1">1</button
+            ><button class="numBtn" id="2">2</button
+            ><button class="numBtn" id="3">3</button
+            ><button class="numBtn" id="4">4</button
+            ><button class="numBtn" id="5">5</button
+            ><button class="numBtn" id="6">6</button
+            ><button class="numBtn" id="7">7</button
+            ><button class="numBtn" id="8">8</button
+            ><button class="numBtn" id="9">9</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

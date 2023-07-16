@@ -1,0 +1,78 @@
+.center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+#display {
+  height: 50px;
+  width: 25vw;
+  border: solid 1px purple;
+  text-align: end;
+  font-size: xx-large;
+}
+
+#btn-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    'numbers numbers numbers clear'
+    'numbers numbers numbers plus'
+    'numbers numbers numbers minus'
+    'decimal zero zero multiply'
+    'equals equals equals divide';
+  width: 25vw;
+}
+
+.calcBtn {
+  border: 1px solid green;
+  font-size: x-large;
+}
+
+.numbers {
+  display: flex;
+  flex-wrap: wrap;
+}
+.numbers > * {
+  flex: 0 0 33.3333%;
+}
+
+.clear {
+  grid-area: clear;
+}
+
+.plus {
+  grid-area: plus;
+}
+
+.minus {
+  grid-area: minus;
+}
+
+.multiply {
+  grid-area: multiply;
+}
+
+.divide {
+  grid-area: divide;
+}
+
+.equals {
+  grid-area: equals;
+}
+
+.decimal {
+  grid-area: decimal;
+}
+
+.zero {
+  grid-area: zero;
+}
+
+.numbers {
+  grid-area: numbers;
+}

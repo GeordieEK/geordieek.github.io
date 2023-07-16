@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 75% vw;
+}
+
+img {
+  margin: 1vw;
+}
