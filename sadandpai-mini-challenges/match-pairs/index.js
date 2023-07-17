@@ -51,9 +51,11 @@ const createMatchCard = (symbol) => {
 };
 
 const populateGameContainer = (container, matchCards) => {
+  const fragment = document.createDocumentFragment();
   matchCards.forEach((card) => {
-    container.append(card);
+    fragment.appendChild(card);
   });
+  container.appendChild(fragment);
 };
 
 const attemptCounter = () => {
@@ -72,17 +74,13 @@ const displayCount = (display, count) => {
   display.innerText = `${count} Attempts`;
 };
 
-const handleContainerClick = (event, checkMatch, counter, counterDisplay) => {
-  if (event.target.matches('.game-card')) {
-    event.target.classList.remove('facedown');
-    checkMatch(event.target);
-    displayCount(counterDisplay, counter.incrementCounter());
-  }
-};
-
 const facedownCards = (cards, delay = 0) => {
   const flipCards = () => {
-    cards.forEach((card) => card.classList.add('facedown'));
+    cards.forEach((card) => {
+      if (!card.classList.contains('matched-card')) {
+        card.classList.add('facedown');
+      }
+    });
   };
   if (delay === 0) {
     flipCards();
@@ -107,8 +105,8 @@ const matchChecker = () => {
         console.log('match success');
         flippedCards.forEach((card) => card.classList.add('matched-card'));
       }
-      facedownCards(flippedCards, 2000);
-      setTimeout(() => (flippedCards = []), 2000);
+      if (!result) facedownCards(flippedCards, 1000);
+      setTimeout(() => (flippedCards = []), 1000);
       return result;
     }
   };
