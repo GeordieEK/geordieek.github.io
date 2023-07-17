@@ -116,9 +116,11 @@ const matchChecker = () => {
 
 const bindEventHandlers = (
   container,
+  symbols,
   resetBtn,
-  counter,
   counterDisplay,
+  counter,
+  gridSize,
   checkMatch
 ) => {
   container.addEventListener('click', (event) => {
@@ -131,10 +133,11 @@ const bindEventHandlers = (
 
   resetBtn.addEventListener('click', () => {
     createMatchGame(
-      gameContainer,
+      container,
       symbols,
       resetBtn,
       counterDisplay,
+      gridSize,
       counter,
       false
     );
@@ -147,7 +150,7 @@ const createMatchGame = (
   symbols,
   resetBtn,
   counterDisplay,
-  gameSize,
+  gridSize,
   counter = attemptCounter(),
   addListeners = true
 ) => {
@@ -156,7 +159,7 @@ const createMatchGame = (
   container.innerText = '';
 
   // Choose symbols
-  const symbolPairs = selectSymbolPairs(symbols, gameSize * 2);
+  const symbolPairs = selectSymbolPairs(symbols, gridSize * 2);
 
   // Create Match Card
   const matchCards = symbolPairs.map((symbol) => createMatchCard(symbol));
@@ -168,7 +171,15 @@ const createMatchGame = (
 
   // If not a reset game, add event listeners and create new counter
   if (addListeners) {
-    bindEventHandlers(container, resetBtn, counter, counterDisplay, checkMatch);
+    bindEventHandlers(
+      container,
+      symbols,
+      resetBtn,
+      counterDisplay,
+      counter,
+      gridSize,
+      checkMatch
+    );
   }
 };
 
