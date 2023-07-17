@@ -149,7 +149,7 @@ const createMatchGame = (
   resetBtn,
   counterDisplay,
   gridSize,
-  counter = attemptCounter(),
+  counter,
   addListeners = true
 ) => {
   // Resetting counter and game container
@@ -185,5 +185,13 @@ const gameContainer = document.querySelector('.game-container');
 const resetBtn = document.querySelector('#resetBtn');
 const counterDisplay = document.querySelector('#counter');
 const gridSize = 4; // 4x4 grid
+const counter = attemptCounter();
 
-createMatchGame(gameContainer, symbols, resetBtn, counterDisplay, gridSize);
+createMatchGame(
+  gameContainer,
+  symbols,
+  resetBtn,
+  counterDisplay,
+  gridSize,
+  counter
+);
