@@ -175,6 +175,6 @@ const createMatchGame = (
 const gameContainer = document.querySelector('.game-container');
 const resetBtn = document.querySelector('#resetBtn');
 const counterDisplay = document.querySelector('#counter');
-const gameSize = 4; // 4x4 grid
+const gridSize = 4; // 4x4 grid
 
 createMatchGame(gameContainer, symbols, resetBtn, counterDisplay, gridSize);
