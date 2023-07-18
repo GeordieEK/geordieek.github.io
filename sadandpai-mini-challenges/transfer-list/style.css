@@ -1,0 +1,23 @@
+#pageContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  border: solid 1px black;
+  min-width: 200px;
+  min-height: 100px;
+  flex: 0 0 33.333%;
+}
+
+#btnContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 0.5;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#btnContainer > * {
+  width: 50px;
+}
