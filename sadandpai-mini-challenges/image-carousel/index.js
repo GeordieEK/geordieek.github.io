@@ -76,8 +76,6 @@ class Carousel {
       }
     });
   }
-
-  displayImage() {}
 }
 
 const carousel = document.querySelector('#carousel');

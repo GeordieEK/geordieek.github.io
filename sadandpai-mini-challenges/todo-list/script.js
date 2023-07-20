@@ -50,10 +50,10 @@ const createToDoNode = (name) => {
 
 const handleToDoClick = (e, container) => {
   const node = e.target.parentElement;
-  if (e.target.classList.contains('deleteBtn')) {
+  if (e.target.matches('.deleteBtn')) {
     deleteToDo(node, container);
   }
-  if (e.target.classList.contains('editBtn')) {
+  if (e.target.matches('.editBtn')) {
     editToDo(node, container);
   }
 };

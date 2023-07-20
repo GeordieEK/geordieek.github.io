@@ -1,6 +1,5 @@
 data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-// TODO: Globals bad - encapsulate later
 const puzzleContainer = document.querySelector('.puzzleContainer');
 
 const populatePuzzle = (data, puzzleContainer) => {
@@ -23,10 +22,6 @@ const swapElements = (obj1, obj2) => {
   temp.parentNode.insertBefore(obj2, temp);
   // remove temporary marker node
   temp.parentNode.removeChild(temp);
-};
-
-const handleDrag = () => {
-  //Swap position with element that it lands on
 };
 
 const addDragListeners = (puzzleContainer) => {

@@ -41,19 +41,15 @@ function handleEqualsBtnClick(event) {
   let resultNum;
   //TODO: Dependency Injection
   if (operation === '+') {
-    //TODO: This may cause problems with float
     resultNum = parseFloat(num1) + parseFloat(num2);
   }
   if (operation === '-') {
-    //TODO: This may cause problems with float
     resultNum = parseFloat(num1) - parseFloat(num2);
   }
   if (operation === 'x') {
-    //TODO: This may cause problems with float
     resultNum = parseFloat(num1) * parseFloat(num2);
   }
   if (operation === '/') {
-    //TODO: This may cause problems with float
     resultNum = parseFloat(num1) / parseFloat(num2);
   }
   // If num to display includes decimal, check string length and truncate appropriately
@@ -77,5 +73,3 @@ container.addEventListener('click', (event) => {
   else if (event.target.classList.contains('opBtn')) handleOpBtnClick(event);
   else if (event.target.classList.contains('numBtn')) handleNumBtnClick(event);
 });
-
-//FORME: Closure with event listener
