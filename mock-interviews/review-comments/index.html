@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review section</title>
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <fieldset id="review-input-container">
+        <label for="title-input">Title:</label>
+        <input type="text" id="title-input" />
+        <label for="description-input"> Description:</label>
+        <input type="text" id="description-input" />
+        <label for="rating-input">Rating:</label>
+        <input type="number" id="rating-input" max="5" min="1" />
+        <button id="post-review-btn">Post review</button>
+      </fieldset>
+      <div id="posted-reviews"></div>
+    </main>
+  </body>
+</html>

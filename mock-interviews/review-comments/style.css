@@ -1,0 +1,19 @@
+#review-input-container {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#description-input {
+  width: 40vw;
+  height: 10vw;
+}
+
+.review {
+  border: solid 1px black;
+  border-radius: 10px;
+  width: 50vw;
+  padding-left: 15px;
+}
