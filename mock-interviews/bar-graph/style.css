@@ -1,0 +1,27 @@
+#graph-wrapper {
+  display: flex;
+}
+
+#yaxis-container {
+  width: 50px;
+  position: relative;
+  border: solid 1px blue;
+  height: 600px;
+}
+
+#graph-container {
+  display: flex;
+  align-items: flex-end;
+  width: 600px;
+  height: 600px;
+  border-left: solid 2px black;
+  border-bottom: solid 2px black;
+}
+
+#label-container {
+  display: flex;
+}
+
+#label-container > * {
+  writing-mode: vertical-lr;
+}
