@@ -3,11 +3,21 @@ import { fetchData } from './data.js';
 const requestData = async () => {
   try {
     const response = await fetchData();
+    if (!response.ok) console.error(response);
     return response;
   } catch (error) {
     throw new Error('Request failed', { cause: error });
   }
 };
+
+function getRandomColorHex() {
+  var hex = '0123456789ABCDEF',
+    color = '#';
+  for (var i = 1; i <= 6; i++) {
+    color += hex[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
 
 const generateGraph = (
   graphContainer,
@@ -22,7 +32,7 @@ const generateGraph = (
     // Create a div
     const graphBar = document.createElement('div');
     // Generate a random background colour
-    const randomColor = Math.round(Math.random() * 2000);
+    const randomColor = getRandomColorHex;
     graphBar.style.backgroundColor = `#${randomColor}`;
     // Height to be percentage of value / maxvalue
     graphBar.style.height = `${(month.value / maxValue) * 100}%`;
